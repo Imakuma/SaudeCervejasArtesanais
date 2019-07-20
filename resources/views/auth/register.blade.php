@@ -1,11 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+<section id='cadastro'>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            <h2 class="text-center">{{ __('Cadastre-se') }}</h2>
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -40,7 +42,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome de usuario') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome de usuário') }}</label>
 
                             <div class="col-md-6">
                                 <input id="user_name" type="text" class="form-control @error('user_name') is-invalid @enderror"
@@ -58,7 +60,7 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Tipo de usuário') }}</label>
                             <div class="col-md-6">
                                 <select name="user_tipo" id="user_tipo">
-                                    <option desabled value="0">selecione o tipo de usuario</option>
+                                    <option desabled value="0">Selecione o tipo de usuário</option>
                                     <option value="1">Administrador</option>
                                     <option value="2">Vendedor</option>
                                     <option value="3">Usuário</option>
@@ -102,7 +104,7 @@
                         </div>
                         <div class="form-group row">
                             <label for="email"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Cpf') }}</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('CPF') }}</label>
 
                             <div class="col-md-6">
                                 <input id="cpf" type="number" class="form-control @error('cpf') is-invalid @enderror"
@@ -118,7 +120,7 @@
 
                         <div class="form-group row">
                             <label for="password"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('Senha') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password"
@@ -135,7 +137,7 @@
 
                         <div class="form-group row">
                             <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Senha') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
@@ -143,10 +145,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                        <div class="form-group mt-5">
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn button px-5">
+                                    {{ __('Cadastre-se') }}
                                 </button>
                             </div>
                         </div>
@@ -156,4 +158,5 @@
         </div>
     </div>
 </div>
+</section>
 @endsection
