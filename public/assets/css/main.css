@@ -674,3 +674,10 @@ section#cadastro select, section#login select, section#resetar_senha select {
   padding: 6px;
   color: #f9690e;
   font-weight: 600; }
+
+section#lista-produtos th{
+  text-align: center;
+}
+section#lista-produtos td{
+  text-align: center;
+}

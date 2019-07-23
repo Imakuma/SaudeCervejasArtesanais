@@ -20,3 +20,13 @@ Route::get('/', 'PageController@principal');
 Route::get('/categoria', 'PageController@categoria');
 Route::get('/carrinho', 'PageController@carrinho');
 Route::get('/logar', 'PageController@login');
+
+
+//------------CRUD PRODUTOS
+Route::get('produtos', 'produtoController@index');
+
+Route::get('produto/cadastro', "produtoController@create");
+Route::post('produto/cadastro', "produtoController@create");
+
+route::get("produto/editar/{id}", "produtoController@edit");
+route::post("produto/editar/{id}", "produtoController@edit");
