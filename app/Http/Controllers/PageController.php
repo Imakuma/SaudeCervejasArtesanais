@@ -37,3 +37,4 @@ class PageController extends Controller
         return view('login');
     }
 }
+ 

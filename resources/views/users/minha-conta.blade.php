@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('title', 'Carrinho')
+@section('title', 'Minha Conta')
 
 @section('content')
 
 <section id="cart">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row my-5">
                 <div class="cart-products col-lg-9">
 

@@ -15,9 +15,10 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('produto_nome');
             $table->string('produto_familia');
             $table->string('produto_tipo');
-            $table->string('produto_imagem');
+            $table->string('produto_imagem')->nullable();;
             $table->string('produtor');
             $table->string('envase')->nullable();
             $table->float('preco_de_compra', 8, 2)->nullable();

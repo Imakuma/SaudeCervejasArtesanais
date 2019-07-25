@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
+        //VALIDAÇÃO DE CAMPOS... CPF E ETC. https://github.com/LaravelLegends/pt-br-validator
+        LaravelLegends\PtBrValidator\ValidatorProvider::class
 
     ],
 

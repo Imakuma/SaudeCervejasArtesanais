@@ -9,18 +9,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //pages
-Route::get('/', 'PageController@principal');
-Route::get('/categoria', 'PageController@categoria');
-Route::get('/carrinho', 'PageController@carrinho');
-Route::get('/logar', 'PageController@login');
 
+Route::get('/', 'PageController@principal')->name('index');;
+
+Route::get('/categoria', 'PageController@categoria')->name('categoria');
+
+Route::get('/carrinho', 'PageController@carrinho')->name('carrinho');
+Route::get('/produto', 'PageController@produto')->name('produto');
+
+Route::get('/minha-conta', 'UserController@index')->name('minha-conta');
+
+// Route::get('/', 'PageController@principal');
+// Route::get('/categoria', 'PageController@categoria');
+// Route::get('/carrinho', 'PageController@carrinho');
+// Route::get('/logar', 'PageController@login');
 
 //------------CRUD PRODUTOS
 Route::get('produtos', 'produtoController@index');

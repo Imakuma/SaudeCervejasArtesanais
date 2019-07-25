@@ -24,7 +24,7 @@
             <div class="container">
                 <div id="navbar-top" class="navbar px-1 pb-0 ">
                     <div class="navbar-brand col-lg-2 mx-0 pl-3 pr-0">
-                        <a href="#"><img src="assets/img/logo01.jpeg" alt=""></a>
+                        <a href="{{ route('index') }}"><img src="assets/img/logo01.jpeg" alt=""></a>
                     </div>
                     <form class="form-inline col-lg-8 mx-auto px-0">
                         <div class="mx-auto">
@@ -35,37 +35,42 @@
 
 
                     </form>
-                    <!-- CARRINHO USUÁRIO LOGADO -->
+                    <!-- STATUS USUÁRIO -->
                     <ul
                         class="navbar-top-user-cart col-lg-2 d-flex justify-content-between align-items-center mb-0 px-0">
+                        @guest
 
-                        <!-- STATUS USUÁRIO -->
-                        <!-- <li class="navbar-top-user nav-item col-6 px-0">
-                        <a class="nav-link d-flex justify-content-center align-items-center" href="#">Logar</a>
-                    </li> -->
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link  px-0" role="button" aria-haspopup="true" aria-expanded="false"
+                                href="{{ route('login') }}"><i class="fas fa-user"></i> {{ __('Entrar') }}</a>
+                        </li>
+                        @endif
+                        @else
+                         
                         <li class="navbar-top-user nav-item dropdown col-6 px-0">
 
 
                             <a class="nav-link dropdown-toggle px-0" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> Cliente</a>
+                                aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>
+                                {{ Auth::user()->name }}</a>
                             <div class="navbar-top-user-contain dropdown-menu">
-                                <a class="dropdown-item" href="#">Sua Conta</a>
-                                <a class="dropdown-item" href="#">Lista de compras</a>
-                                <a class="dropdown-item" href="#">Seus Pedidos</a>
-                                <a class="dropdown-item" href="#">Lista de desejos</a>
-                                <a class="dropdown-item" href="#"></a>
+                                <a class="dropdown-item" href="{{route('minha-conta')}}">Minha Conta</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Sair</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
 
+                        @endguest
+                        
+
                         <!-- CARRINHO -->
-                        <!-- <li class="navbar-top-cart nav-item col-6 px-0">
-                        <a class="nav-link d-flex justify-content-center align-items-center" href="#">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="ml-2">999</span>
-                        </a>
-                    </li> -->
+                       
                         <li class="navbar-top-cart nav-item col-6 px-0">
                             <a class="nav-link d-flex justify-content-center align-items-center" data-toggle="dropdown"
                                 href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -116,7 +121,7 @@
                                 </div>
 
                                 <div class="dropdown-divider"></div>
-                                <button class="btn w-100">Finalizar compra</button>
+                                <a class="btn w-100" href="{{ route('carrinho') }}">Finalizar compra</a>
                             </div>
                         </li>
                     </ul>
@@ -133,10 +138,10 @@
                     <div class="collapse navbar-collapse menu-desktop" id="navbarSupportedContent">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Todas as Cervejas <span
+                                <a class="nav-link" href="{{route('categoria')}}">Todas as Cervejas <span
                                         class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item"> 
                                 <a class="nav-link" href="#">Leilão</a>
                             </li>
                             <li class="nav-item">
@@ -170,11 +175,11 @@
                         <div class="row justify-content-around p-0 m-0">
                             <div class="d-flex justify-content-center p-0 m-0 ">
 
-                                <button type="button w-100" class="btn">Fazer Login</button>
+                                <a type="button" class="btn">Fazer Login</a>
                             </div>
                             <div class="d-flex justify-content-center p-0 m-0">
 
-                                <button type="button w-100" class="btn">Cadastrar</button>
+                                <a type="button" class="btn">Cadastrar</a>
                             </div>
                         </div>
                     </li>
@@ -182,17 +187,20 @@
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true"
                             aria-expanded="false"><i class="fas fa-user mr-2"></i> Cliente</a>
                         <div class=" dropdown-menu w-100">
-                            <a class="dropdown-item" href="#">Sua Conta</a>
-                            <a class="dropdown-item" href="#">Lista de compras</a>
-                            <a class="dropdown-item" href="#">Seus Pedidos</a>
-                            <a class="dropdown-item" href="#">Lista de desejos</a>
-                            <a class="dropdown-item" href="#"></a>
+                            <a class="dropdown-item" href="{{'minha-conta'}}">Minha conta</a>
+                            
+                          
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Sair</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">{{ __('Sair') }}</a>
+           <form id="logout-form" action="{{ route('logout') }}" method="POST"
+               style="display: none;">
+               @csrf
+           </form>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Todas as Cervejas</a>
+                        <a class="nav-link" href="{{route('categoria')}}">Todas as Cervejas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Leilão</a>

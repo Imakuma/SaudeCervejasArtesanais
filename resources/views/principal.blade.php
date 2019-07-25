@@ -12,14 +12,7 @@
                     <div class="carousel-bunner img-carousel1">
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="carousel-bunner img-carousel2" data-pause="false">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="carousel-bunner img-carousel3" data-pause="false">
-                    </div>
-                </div>
+
             </div>
             <a class="carousel-prev" href="#corousel-home" role="button" data-slide="prev">
 
@@ -58,13 +51,63 @@
 
         </div>
 </section>
+<section id="home-marcas">
+
+
+    <div class="container ">
+        <h3>Marcas</h3>
+
+        <div class="owl-carousel owl-theme owl-marcas mx-auto">
+            <div class="item ">
+                <img class="img-brand" src="assets/img/o-corona.png" alt="">
+
+
+            </div>
+            <div class="item ">
+
+                <img class="img-brand" src="assets/img/o-corona.png" alt="">
+
+            </div>
+
+            <div class="item ">
+                <img class="img-brand" src="assets/img/o-corona.png" alt="">
+
+
+            </div>
+            <div class="item ">
+                <img class="img-brand" src="assets/img/o-corona.png" alt="">
+
+
+            </div>
+            <div class="item ">
+                <img class="img-brand" src="assets/img/o-corona.png" alt="">
+
+
+            </div>
+            <div class="item ">
+                <img class="img-brand" src="assets/img/o-corona.png" alt="">
+
+            </div>
+            <div class="item ">
+
+                <img class="img-brand" src="assets/img/o-corona.png" alt="">
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</section>
 <!--  Demos -->
-<section id="demos">
+<section id="home-produtos">
     <div class="container">
 
         <h3>Cervejas Nacionais</h3>
 
-        <div class="owl-carousel owl-theme">
+        <div class="owl-carousel owl-theme owl-produtos">
             <div class="item">
                 <div class="card mb-5">
                     <img src="assets/img/produto-01.jpg" class="card-img-top px-4 img-fluid" alt="...">
@@ -87,7 +130,7 @@
                             <p>por <span>R$ 13,90</span></p>
                         </div>
                     </div>
-                    <button class="btn">Adicionar</button>
+                    <a class="btn" href="{{route('produto')}}">Adicionar</a>
                 </div>
 
             </div>
@@ -275,6 +318,11 @@
             </div>
 
         </div>
+    </div>
+</section>
+<section id="promocao">
+    <div class="container">
+        <img class="img-fluid" src="assets/img/bunner2.jpeg" alt="">
     </div>
 </section>
 
